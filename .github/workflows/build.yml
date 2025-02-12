@@ -31,6 +31,12 @@ jobs:
           sudo apt update
           sudo apt install -y python3 python3-pip openjdk-17-jdk autoconf automake cmake unzip zlib1g-dev libffi-dev libssl-dev libncurses5-dev
 
+      - name: Install Android SDK & AIDL
+        run: |
+          sudo apt install -y android-sdk
+          yes | sdkmanager --licenses
+          sdkmanager "platforms;android-31" "build-tools;31.0.0" "platform-tools"
+
       - name: Initialize Buildozer
         run: buildozer init
 
