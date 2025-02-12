@@ -33,9 +33,10 @@ jobs:
 
       - name: Install Android SDK & AIDL
         run: |
-          sudo apt install -y android-sdk
-          yes | sdkmanager --licenses
-          sdkmanager "platforms;android-31" "build-tools;31.0.0" "platform-tools"
+          sudo apt install -y android-sdk adb
+          export ANDROID_HOME=$HOME/android-sdk
+          export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH
+          sdkmanager --install "platform-tools" "platforms;android-31" "build-tools;31.0.0" "cmdline-tools;latest"
 
       - name: Initialize Buildozer
         run: buildozer init
