@@ -33,6 +33,6 @@ jobs:
 
       - name: Build APK
         run: |
-          buildozer init
           buildozer -v android debug
+
 Added GitHub Actions workflow for APK build
