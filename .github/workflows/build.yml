@@ -33,5 +33,6 @@ jobs:
 
       - name: Build APK
         run: |
-          buildozer android debug                                   
+          buildozer -v android debug
+                                  
       Fixed YAML syntax and updated dependencies
